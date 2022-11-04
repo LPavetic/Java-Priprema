@@ -139,6 +139,8 @@ public class Glavna{
         int brUstanova = 0;
         short odabirUstanove = 0;
 
+        System.out.println("Mrs u picku materinu!!!");
+
         System.out.print("Unesite broj obrazovnih ustanova: ");
         brUstanova = scanner.nextInt();
         scanner.nextLine();
