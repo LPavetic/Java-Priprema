@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Glavna{
@@ -33,14 +34,22 @@ public class Glavna{
         scanner.nextLine();
         Profesor nositelj = profesori[odabir-1];
         System.out.print("Unesite broj studenata za predmet " + "'" + naziv + "'");
-        scanner.nextShort();
+        boolean prolaz = false;
+        do {
+            try {
+                System.out.print("Unesite ime profesora: ");
+                Integer brStudenata=scanner.nextInt();
+            }
+            catch (InputMismatchException ex){
+                System.out.println("Unesite ponovno!");
+            }
+        }while(!prolaz);
         scanner.nextLine();
         return new Predmet(sifra, naziv, brojEctsBodova, nositelj);
     }
     public static Profesor unosProfesora(Scanner scanner){
         System.out.print("Unesite sifru profesora: ");
         String sifra = scanner.nextLine();
-        System.out.print("Unesite ime profesora: ");
         String ime = scanner.nextLine();
         System.out.print("Unesite prezime profesora: ");
         String prezime = scanner.nextLine();
